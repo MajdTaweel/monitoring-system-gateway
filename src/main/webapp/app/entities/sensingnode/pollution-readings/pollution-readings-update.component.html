@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-pollution-readings-heading" jhiTranslate="gatewayApp.sensingnodePollutionReadings.home.createOrEditLabel">Create or edit a Pollution Readings</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sensingnodePollutionReadings.air" for="field_air">Air</label>
+                    <input type="number" class="form-control" name="air" id="field_air"
+                           formControlName="air"/>
+                    <div *ngIf="editForm.get('air')!.invalid && (editForm.get('air')!.dirty || editForm.get('air')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('air')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('air')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sensingnodePollutionReadings.sound" for="field_sound">Sound</label>
+                    <input type="number" class="form-control" name="sound" id="field_sound"
+                           formControlName="sound"/>
+                    <div *ngIf="editForm.get('sound')!.invalid && (editForm.get('sound')!.dirty || editForm.get('sound')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('sound')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('sound')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sensingnodePollutionReadings.sensingNode" for="field_sensingNode">Sensing Node</label>
+                    <select class="form-control" id="field_sensingNode" name="sensingNode" formControlName="sensingNodeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sensingNodeOption.id" *ngFor="let sensingNodeOption of sensingnodes; trackBy: trackById">{{ sensingNodeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-magnetometer-readings-heading" jhiTranslate="gatewayApp.sensingnodeMagnetometerReadings.home.createOrEditLabel">Create or edit a Magnetometer Readings</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sensingnodeMagnetometerReadings.x" for="field_x">X</label>
+                    <input type="number" class="form-control" name="x" id="field_x"
+                           formControlName="x"/>
+                    <div *ngIf="editForm.get('x')!.invalid && (editForm.get('x')!.dirty || editForm.get('x')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('x')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('x')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sensingnodeMagnetometerReadings.y" for="field_y">Y</label>
+                    <input type="number" class="form-control" name="y" id="field_y"
+                           formControlName="y"/>
+                    <div *ngIf="editForm.get('y')!.invalid && (editForm.get('y')!.dirty || editForm.get('y')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('y')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('y')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sensingnodeMagnetometerReadings.z" for="field_z">Z</label>
+                    <input type="number" class="form-control" name="z" id="field_z"
+                           formControlName="z"/>
+                    <div *ngIf="editForm.get('z')!.invalid && (editForm.get('z')!.dirty || editForm.get('z')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('z')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('z')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sensingnodeMagnetometerReadings.rms" for="field_rms">Rms</label>
+                    <input type="number" class="form-control" name="rms" id="field_rms"
+                           formControlName="rms"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sensingnodeMagnetometerReadings.sensingNode" for="field_sensingNode">Sensing Node</label>
+                    <select class="form-control" id="field_sensingNode" name="sensingNode" formControlName="sensingNodeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sensingNodeOption.id" *ngFor="let sensingNodeOption of sensingnodes; trackBy: trackById">{{ sensingNodeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

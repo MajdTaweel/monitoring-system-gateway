@@ -1,0 +1,9 @@
+{
+  "gatewayApp": {
+    "SensingNodeType": {
+      "null": "",
+      "MAGNETOMETER": "MAGNETOMETER",
+      "POLLUTION": "POLLUTION"
+    }
+  }
+}

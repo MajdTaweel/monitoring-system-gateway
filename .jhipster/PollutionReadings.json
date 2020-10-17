@@ -1,0 +1,36 @@
+{
+  "name": "PollutionReadings",
+  "fields": [
+    {
+      "fieldName": "air",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sound",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sensingNode",
+      "otherEntityRelationshipName": "pollutionReadings",
+      "relationshipName": "sensingNode",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201017152352",
+  "entityTableName": "pollution_readings",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["gateway", "sensingnode"],
+  "microserviceName": "sensingnode"
+}

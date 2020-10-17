@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sensingNode">
+            <h2><span jhiTranslate="gatewayApp.sensingnodeSensingNode.detail.title">Sensing Node</span> {{ sensingNode.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.sensingnodeSensingNode.sensingNodeType">Sensing Node Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewayApp.SensingNodeType.' + sensingNode.sensingNodeType }}">{{ sensingNode.sensingNodeType }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sensingnodeSensingNode.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewayApp.SensingNodeStatus.' + sensingNode.status }}">{{ sensingNode.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sensingnodeSensingNode.longitude">Longitude</span></dt>
+                <dd>
+                    <span>{{ sensingNode.longitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sensingnodeSensingNode.latitude">Latitude</span></dt>
+                <dd>
+                    <span>{{ sensingNode.latitude }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sensingnodeSensingNode.battery">Battery</span></dt>
+                <dd>
+                    <span>{{ sensingNode.battery }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sensingnodeSensingNode.user">User</span></dt>
+                <dd>
+                    {{ sensingNode.userId }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sensing-node', sensingNode.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

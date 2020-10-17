@@ -1,0 +1,45 @@
+{
+  "name": "MagnetometerReadings",
+  "fields": [
+    {
+      "fieldName": "x",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "y",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "z",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "rms",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sensingNode",
+      "otherEntityRelationshipName": "magnetometerReadings",
+      "relationshipName": "sensingNode",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201017152252",
+  "entityTableName": "magnetometer_readings",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["gateway", "sensingnode"],
+  "microserviceName": "sensingnode"
+}

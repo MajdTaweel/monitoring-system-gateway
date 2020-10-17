@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "sensingnodeMagnetometerReadings": {
+      "home": {
+        "title": "Magnetometer Readings",
+        "createLabel": "Create a new Magnetometer Readings",
+        "createOrEditLabel": "Create or edit a Magnetometer Readings",
+        "notFound": "No Magnetometer Readings found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Magnetometer Readings {{ id }}?"
+      },
+      "detail": {
+        "title": "Magnetometer Readings"
+      },
+      "x": "X",
+      "y": "Y",
+      "z": "Z",
+      "rms": "Rms",
+      "sensingNode": "Sensing Node"
+    }
+  },
+  "sensingnodeApp": {
+    "sensingnodeMagnetometerReadings": {
+      "created": "A new Magnetometer Readings is created with identifier {{ param }}",
+      "updated": "A Magnetometer Readings is updated with identifier {{ param }}",
+      "deleted": "A Magnetometer Readings is deleted with identifier {{ param }}"
+    }
+  }
+}

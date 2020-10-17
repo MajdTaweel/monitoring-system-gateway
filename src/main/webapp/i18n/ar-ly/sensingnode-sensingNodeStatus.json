@@ -1,0 +1,9 @@
+{
+  "gatewayApp": {
+    "SensingNodeStatus": {
+      "null": "",
+      "ONLINE": "ONLINE",
+      "OFFLINE": "OFFLINE"
+    }
+  }
+}

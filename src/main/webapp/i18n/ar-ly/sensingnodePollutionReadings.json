@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "sensingnodePollutionReadings": {
+      "home": {
+        "title": "Pollution Readings",
+        "createLabel": "Create a new Pollution Readings",
+        "createOrEditLabel": "Create or edit a Pollution Readings",
+        "notFound": "No Pollution Readings found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Pollution Readings {{ id }}?"
+      },
+      "detail": {
+        "title": "Pollution Readings"
+      },
+      "air": "Air",
+      "sound": "Sound",
+      "sensingNode": "Sensing Node"
+    }
+  },
+  "sensingnodeApp": {
+    "sensingnodePollutionReadings": {
+      "created": "A new Pollution Readings is created with identifier {{ param }}",
+      "updated": "A Pollution Readings is updated with identifier {{ param }}",
+      "deleted": "A Pollution Readings is deleted with identifier {{ param }}"
+    }
+  }
+}

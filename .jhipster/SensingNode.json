@@ -1,0 +1,63 @@
+{
+  "name": "SensingNode",
+  "fields": [
+    {
+      "fieldName": "sensingNodeType",
+      "fieldType": "SensingNodeType",
+      "fieldValues": "MAGNETOMETER,POLLUTION",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "SensingNodeStatus",
+      "fieldValues": "ONLINE,OFFLINE",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "latitude",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "battery",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "sensingNode",
+      "relationshipName": "user",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "magnetometerReadings",
+      "otherEntityRelationshipName": "sensingNode",
+      "relationshipName": "magnetometerReadings"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pollutionReadings",
+      "otherEntityRelationshipName": "sensingNode",
+      "relationshipName": "pollutionReadings"
+    }
+  ],
+  "changelogDate": "20201017152152",
+  "entityTableName": "sensing_node",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["gateway", "sensingnode"],
+  "microserviceName": "sensingnode"
+}

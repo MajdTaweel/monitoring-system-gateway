@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="magnetometerReadings">
+            <h2><span jhiTranslate="gatewayApp.sensingnodeMagnetometerReadings.detail.title">Magnetometer Readings</span> {{ magnetometerReadings.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.sensingnodeMagnetometerReadings.x">X</span></dt>
+                <dd>
+                    <span>{{ magnetometerReadings.x }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sensingnodeMagnetometerReadings.y">Y</span></dt>
+                <dd>
+                    <span>{{ magnetometerReadings.y }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sensingnodeMagnetometerReadings.z">Z</span></dt>
+                <dd>
+                    <span>{{ magnetometerReadings.z }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sensingnodeMagnetometerReadings.rms">Rms</span></dt>
+                <dd>
+                    <span>{{ magnetometerReadings.rms }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sensingnodeMagnetometerReadings.sensingNode">Sensing Node</span></dt>
+                <dd>
+                    <div *ngIf="magnetometerReadings.sensingNodeId">
+                        <a [routerLink]="['/sensing-node', magnetometerReadings.sensingNodeId, 'view']">{{ magnetometerReadings.sensingNodeId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/magnetometer-readings', magnetometerReadings.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

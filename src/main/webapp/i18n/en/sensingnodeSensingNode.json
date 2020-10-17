@@ -1,0 +1,33 @@
+{
+  "gatewayApp": {
+    "sensingnodeSensingNode": {
+      "home": {
+        "title": "Sensing Nodes",
+        "createLabel": "Create a new Sensing Node",
+        "createOrEditLabel": "Create or edit a Sensing Node",
+        "notFound": "No Sensing Nodes found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Sensing Node {{ id }}?"
+      },
+      "detail": {
+        "title": "Sensing Node"
+      },
+      "sensingNodeType": "Sensing Node Type",
+      "status": "Status",
+      "longitude": "Longitude",
+      "latitude": "Latitude",
+      "battery": "Battery",
+      "user": "User",
+      "magnetometerReadings": "Magnetometer Readings",
+      "pollutionReadings": "Pollution Readings"
+    }
+  },
+  "sensingnodeApp": {
+    "sensingnodeSensingNode": {
+      "created": "A new Sensing Node is created with identifier {{ param }}",
+      "updated": "A Sensing Node is updated with identifier {{ param }}",
+      "deleted": "A Sensing Node is deleted with identifier {{ param }}"
+    }
+  }
+}
