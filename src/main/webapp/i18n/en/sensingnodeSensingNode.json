@@ -18,7 +18,6 @@
       "longitude": "Longitude",
       "latitude": "Latitude",
       "battery": "Battery",
-      "user": "User",
       "magnetometerReadings": "Magnetometer Readings",
       "pollutionReadings": "Pollution Readings"
     }

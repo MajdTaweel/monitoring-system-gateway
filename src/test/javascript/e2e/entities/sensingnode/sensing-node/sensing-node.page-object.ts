@@ -35,8 +35,6 @@ export class SensingNodeUpdatePage {
   latitudeInput = element(by.id('field_latitude'));
   batteryInput = element(by.id('field_battery'));
 
-  userSelect = element(by.id('field_user'));
-
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
   }
@@ -87,22 +85,6 @@ export class SensingNodeUpdatePage {
 
   async getBatteryInput(): Promise<string> {
     return await this.batteryInput.getAttribute('value');
-  }
-
-  async userSelectLastOption(): Promise<void> {
-    await this.userSelect.all(by.tagName('option')).last().click();
-  }
-
-  async userSelectOption(option: string): Promise<void> {
-    await this.userSelect.sendKeys(option);
-  }
-
-  getUserSelect(): ElementFinder {
-    return this.userSelect;
-  }
-
-  async getUserSelectedOption(): Promise<string> {
-    return await this.userSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

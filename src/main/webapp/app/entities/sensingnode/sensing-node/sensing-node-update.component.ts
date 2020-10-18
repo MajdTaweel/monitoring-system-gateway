@@ -7,8 +7,6 @@ import { Observable } from 'rxjs';
 
 import { ISensingNode, SensingNode } from 'app/shared/model/sensingnode/sensing-node.model';
 import { SensingNodeService } from './sensing-node.service';
-import { IUser } from 'app/core/user/user.model';
-import { UserService } from 'app/core/user/user.service';
 
 @Component({
   selector: 'jhi-sensing-node-update',
@@ -16,7 +14,6 @@ import { UserService } from 'app/core/user/user.service';
 })
 export class SensingNodeUpdateComponent implements OnInit {
   isSaving = false;
-  users: IUser[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -25,21 +22,13 @@ export class SensingNodeUpdateComponent implements OnInit {
     longitude: [],
     latitude: [],
     battery: [],
-    userId: [],
   });
 
-  constructor(
-    protected sensingNodeService: SensingNodeService,
-    protected userService: UserService,
-    protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
-  ) {}
+  constructor(protected sensingNodeService: SensingNodeService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ sensingNode }) => {
       this.updateForm(sensingNode);
-
-      this.userService.query().subscribe((res: HttpResponse<IUser[]>) => (this.users = res.body || []));
     });
   }
 
@@ -51,7 +40,6 @@ export class SensingNodeUpdateComponent implements OnInit {
       longitude: sensingNode.longitude,
       latitude: sensingNode.latitude,
       battery: sensingNode.battery,
-      userId: sensingNode.userId,
     });
   }
 
@@ -78,7 +66,6 @@ export class SensingNodeUpdateComponent implements OnInit {
       longitude: this.editForm.get(['longitude'])!.value,
       latitude: this.editForm.get(['latitude'])!.value,
       battery: this.editForm.get(['battery'])!.value,
-      userId: this.editForm.get(['userId'])!.value,
     };
   }
 
@@ -96,9 +83,5 @@ export class SensingNodeUpdateComponent implements OnInit {
 
   protected onSaveError(): void {
     this.isSaving = false;
-  }
-
-  trackById(index: number, item: IUser): any {
-    return item.id;
   }
 }

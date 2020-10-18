@@ -49,7 +49,6 @@ describe('SensingNode e2e test', () => {
       sensingNodeUpdatePage.setLongitudeInput('5'),
       sensingNodeUpdatePage.setLatitudeInput('5'),
       sensingNodeUpdatePage.setBatteryInput('5'),
-      sensingNodeUpdatePage.userSelectLastOption(),
     ]);
 
     expect(await sensingNodeUpdatePage.getLongitudeInput()).to.eq('5', 'Expected longitude value to be equals to 5');
