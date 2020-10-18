@@ -10,6 +10,7 @@ export interface ISensingNode {
   longitude?: number;
   latitude?: number;
   battery?: number;
+  userLogin?: string;
   userId?: number;
   magnetometerReadings?: IMagnetometerReadings[];
   pollutionReadings?: IPollutionReadings[];
@@ -23,6 +24,7 @@ export class SensingNode implements ISensingNode {
     public longitude?: number,
     public latitude?: number,
     public battery?: number,
+    public userLogin?: string,
     public userId?: number,
     public magnetometerReadings?: IMagnetometerReadings[],
     public pollutionReadings?: IPollutionReadings[]

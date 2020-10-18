@@ -32,7 +32,7 @@
       "otherEntityName": "user",
       "otherEntityRelationshipName": "sensingNode",
       "relationshipName": "user",
-      "otherEntityField": "id",
+      "otherEntityField": "login",
       "ownerSide": true
     },
     {
