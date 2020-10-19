@@ -17,7 +17,7 @@
     "languages": ["en", "ar-ly"],
     "messageBroker": false,
     "nativeLanguage": "en",
-    "prodDatabaseType": "mysql",
+    "prodDatabaseType": "postgresql",
     "searchEngine": false,
     "skipClient": false,
     "testFrameworks": ["protractor"],
