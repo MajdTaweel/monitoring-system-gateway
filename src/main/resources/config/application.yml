@@ -14,32 +14,6 @@
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
 
-eureka:
-  client:
-    enabled: true
-    healthcheck:
-      enabled: true
-    fetch-registry: true
-    register-with-eureka: true
-    instance-info-replication-interval-seconds: 10
-    registry-fetch-interval-seconds: 10
-  instance:
-    appname: gateway
-    instanceId: gateway:${spring.application.instance-id:${random.value}}
-    lease-renewal-interval-in-seconds: 5
-    lease-expiration-duration-in-seconds: 10
-    status-page-url-path: ${management.endpoints.web.base-path}/info
-    health-check-url-path: ${management.endpoints.web.base-path}/health
-    metadata-map:
-      zone: primary # This is needed for the load balancer
-      profile: ${spring.profiles.active}
-      version: #project.version#
-      git-version: ${git.commit.id.describe:}
-      git-commit: ${git.commit.id.abbrev:}
-      git-branch: ${git.branch:}
-ribbon:
-  eureka:
-    enabled: true
 # See http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html
 zuul: # those values must be configured depending on the application specific needs
   sensitive-headers: Cookie,Set-Cookie #see https://github.com/spring-cloud/spring-cloud-netflix/issues/3126
@@ -49,6 +23,7 @@ zuul: # those values must be configured depending on the application specific ne
   prefix: /services
   semaphore:
     max-semaphores: 500
+  ignoredServices: 'consul,gateway' # Prevent Consul and the "gateway" app itself from having a Zuul route automatically created for them
 
 # See https://github.com/Netflix/Hystrix/wiki/Configuration
 hystrix:
@@ -105,6 +80,15 @@ management:
 spring:
   application:
     name: gateway
+  cloud:
+    consul:
+      discovery:
+        healthCheckPath: /management/health
+        instanceId: gateway:${spring.application.instance-id:${random.value}}
+        service-name: gateway
+      config:
+        watch:
+          enabled: false
   jmx:
     enabled: false
   data:

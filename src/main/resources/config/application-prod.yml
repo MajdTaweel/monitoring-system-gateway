@@ -19,13 +19,6 @@ logging:
     io.github.jhipster: INFO
     edu.birzeit.monitoringsystem.gateway: INFO
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://admin:${jhipster.registry.password}@localhost:8761/eureka/
-
 management:
   metrics:
     export:
@@ -38,6 +31,12 @@ spring:
       enabled: false
     livereload:
       enabled: false
+  cloud:
+    consul:
+      discovery:
+        prefer-ip-address: true
+      host: localhost
+      port: 8500
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://localhost:5432/gateway
