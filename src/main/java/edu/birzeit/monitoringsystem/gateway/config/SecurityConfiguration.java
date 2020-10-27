@@ -2,9 +2,8 @@ package edu.birzeit.monitoringsystem.gateway.config;
 
 import edu.birzeit.monitoringsystem.gateway.config.oauth2.OAuth2JwtAccessTokenConverter;
 import edu.birzeit.monitoringsystem.gateway.config.oauth2.OAuth2Properties;
-import edu.birzeit.monitoringsystem.gateway.security.oauth2.OAuth2SignatureVerifierClient;
 import edu.birzeit.monitoringsystem.gateway.security.AuthoritiesConstants;
-
+import edu.birzeit.monitoringsystem.gateway.security.oauth2.OAuth2SignatureVerifierClient;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cloud.client.loadbalancer.RestTemplateCustomizer;
 import org.springframework.context.annotation.Bean;
@@ -19,8 +18,8 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfFilter;
-import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 @EnableResourceServer
@@ -46,16 +45,18 @@ public class SecurityConfiguration extends ResourceServerConfigurerAdapter {
             .headers()
             .frameOptions()
             .disable()
-        .and()
+            .and()
             .sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        .and()
+            .and()
             .authorizeRequests()
             .antMatchers("/api/**").authenticated()
             .antMatchers("/management/health").permitAll()
             .antMatchers("/management/info").permitAll()
             .antMatchers("/management/prometheus").permitAll()
-            .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN);
+            .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
+            .and()
+            .csrf().disable();
     }
 
     @Bean
