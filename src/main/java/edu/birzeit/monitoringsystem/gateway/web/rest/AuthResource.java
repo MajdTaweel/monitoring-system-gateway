@@ -28,7 +28,7 @@ public class AuthResource {
 
     private final Logger log = LoggerFactory.getLogger(AuthResource.class);
 
-    private OAuth2AuthenticationService authenticationService;
+    private final OAuth2AuthenticationService authenticationService;
 
     public AuthResource(OAuth2AuthenticationService authenticationService) {
         this.authenticationService = authenticationService;
@@ -46,6 +46,10 @@ public class AuthResource {
         .APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OAuth2AccessToken> authenticate(HttpServletRequest request, HttpServletResponse response, @RequestBody
         Map<String, String> params) {
+        if (params.containsKey("email")) {
+            params.put("username", params.get("email"));
+            params.remove("email");
+        }
         return authenticationService.authenticate(request, response, params);
     }
 
