@@ -24,6 +24,7 @@ zuul: # those values must be configured depending on the application specific ne
   semaphore:
     max-semaphores: 500
   ignoredServices: 'consul,gateway' # Prevent Consul and the "gateway" app itself from having a Zuul route automatically created for them
+  ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
 
 # See https://github.com/Netflix/Hystrix/wiki/Configuration
 hystrix:
