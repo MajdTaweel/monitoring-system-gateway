@@ -19,9 +19,10 @@ export class SensingNodeUpdateComponent implements OnInit {
     id: [],
     sensingNodeType: [null, [Validators.required]],
     status: [null, [Validators.required]],
-    longitude: [],
     latitude: [],
+    longitude: [],
     battery: [],
+    needsCalibration: [],
   });
 
   constructor(protected sensingNodeService: SensingNodeService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -37,9 +38,10 @@ export class SensingNodeUpdateComponent implements OnInit {
       id: sensingNode.id,
       sensingNodeType: sensingNode.sensingNodeType,
       status: sensingNode.status,
-      longitude: sensingNode.longitude,
       latitude: sensingNode.latitude,
+      longitude: sensingNode.longitude,
       battery: sensingNode.battery,
+      needsCalibration: sensingNode.needsCalibration,
     });
   }
 
@@ -66,6 +68,7 @@ export class SensingNodeUpdateComponent implements OnInit {
       longitude: this.editForm.get(['longitude'])!.value,
       latitude: this.editForm.get(['latitude'])!.value,
       battery: this.editForm.get(['battery'])!.value,
+      needsCalibration: this.editForm.get(['needsCalibration'])!.value,
     };
   }
 
