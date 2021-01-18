@@ -12,6 +12,7 @@ export interface ISensingNode {
   battery?: number;
   magnetometerReadings?: IMagnetometerReadings[];
   pollutionReadings?: IPollutionReadings[];
+  needsCalibration?: boolean;
 }
 
 export class SensingNode implements ISensingNode {
@@ -23,6 +24,7 @@ export class SensingNode implements ISensingNode {
     public latitude?: number,
     public battery?: number,
     public magnetometerReadings?: IMagnetometerReadings[],
-    public pollutionReadings?: IPollutionReadings[]
+    public pollutionReadings?: IPollutionReadings[],
+    public needsCalibration?: boolean
   ) {}
 }

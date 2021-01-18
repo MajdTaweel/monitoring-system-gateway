@@ -25,9 +25,10 @@
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.sensingnodeSensingNode.sensingNodeType">Sensing Node Type</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.sensingnodeSensingNode.status">Status</span></th>
-                    <th scope="col" ><span jhiTranslate="gatewayApp.sensingnodeSensingNode.longitude">Longitude</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.sensingnodeSensingNode.latitude">Latitude</span></th>
+                    <th scope="col" ><span jhiTranslate="gatewayApp.sensingnodeSensingNode.longitude">Longitude</span></th>
                     <th scope="col" ><span jhiTranslate="gatewayApp.sensingnodeSensingNode.battery">Battery</span></th>
+                    <th scope="col" ><span>Needs Calibration</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -36,9 +37,10 @@
                     <td><a [routerLink]="['/sensing-node', sensingNode.id, 'view']">{{ sensingNode.id }}</a></td>
                     <td jhiTranslate="{{ 'gatewayApp.SensingNodeType.' + sensingNode.sensingNodeType }}">{{ sensingNode.sensingNodeType }}</td>
                     <td jhiTranslate="{{ 'gatewayApp.SensingNodeStatus.' + sensingNode.status }}">{{ sensingNode.status }}</td>
-                    <td>{{ sensingNode.longitude }}</td>
                     <td>{{ sensingNode.latitude }}</td>
+                    <td>{{ sensingNode.longitude }}</td>
                     <td>{{ sensingNode.battery }}</td>
+                    <td>{{ sensingNode.needsCalibration }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
